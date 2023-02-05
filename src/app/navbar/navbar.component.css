@@ -1,0 +1,19 @@
+#nav-container-div{
+    margin: 0;
+    padding: 0;
+    margin-top: 10vh;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+ul li a{
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+
