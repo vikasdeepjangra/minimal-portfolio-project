@@ -10,22 +10,20 @@ export class GetReposListService {
 
   constructor(private http: HttpClient) { }
 
-  generateReposList(): string[]{
-    let headers = new HttpHeaders;
-
-    const url = "https://api.github.com/users/vikasdeepjangra/repos";
-    this.http.get<any>(url, {
-      headers: headers
-    }).subscribe(result =>{
-      //console.log(result);
-      for(let i=0; i<result.length; i++){
-        this.repoNamesList[i] = result[i].name;
-      }
-      //console.log(this.repoNamesList);
-      console.log("Called First");
-    })
-    console.log("Called Later!")
-    return this.repoNamesList;
-  }
+  generateReposList(){
+    return new Promise((resolve, reject) =>{
+      let headers = new HttpHeaders;
+      const url = "https://api.github.com/users/vikasdeepjangra/repos";
+      
+      this.http.get<any>(url, {
+            headers: headers
+      }).subscribe(result =>{
+          for(let i=0; i<result.length; i++){
+            this.repoNamesList[i] = result[i].name;
+          }
+          resolve(this.repoNamesList);
+      })
+    });
+  } 
 
 }

@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
-<app-content class="d-none"></app-content>
+<app-content *ngIf="contentArea"></app-content>
 
-<app-projects></app-projects>
+<app-projects *ngIf="!contentArea"></app-projects>
 
 <app-footer></app-footer>

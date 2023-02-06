@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { GetReposListService } from '../get-repos-list.service';
 
 @Component({
@@ -7,14 +7,13 @@ import { GetReposListService } from '../get-repos-list.service';
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css']
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements OnInit {
   projectsNameList: string[] = [];
 
   constructor(private http: HttpClient, private repoList: GetReposListService){}
 
-  displayProject(){
-    console.log(this.repoList.generateReposList());
-    this.projectsNameList = this.repoList.generateReposList();
-    console.log(this.projectsNameList);
+  ngOnInit(): void {
+    this.projectsNameList = this.repoList.repoNamesList;
   }
+
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { GetReposListService } from '../get-repos-list.service';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-footer',
@@ -8,10 +9,16 @@ import { GetReposListService } from '../get-repos-list.service';
 })
 export class FooterComponent {
 
-  constructor(private repoList: GetReposListService){}
+  repoProjectsList: any;
+  result:any;
 
-  displayProjects(){
-    this.repoList.generateReposList();
+  constructor(private repoList: GetReposListService, private appCompTS: AppComponent){}
+
+  async displayProjects(){
+    this.appCompTS.showProjectsArea();
+    this.repoProjectsList = await this.repoList.generateReposList();
   }
+
+
 
 }
