@@ -1,7 +1,15 @@
-<app-navbar></app-navbar>
+<div id="ThemeManager" class="d-flex justify-content-center" 
+    [ngClass]="{darkTheme: isDarkTheme}" 
+    style="width: 100vw; height: 100vh;">
+    
+    <div style="max-width: 30rem;" >
+        <app-navbar></app-navbar>
 
-<app-content *ngIf="contentArea"></app-content>
+        <app-content *ngIf="contentArea"></app-content>
 
-<app-projects *ngIf="!contentArea"></app-projects>
+        <app-projects *ngIf="!contentArea"></app-projects>
 
-<app-footer></app-footer>
+        <app-footer></app-footer>
+    </div>
+
+</div>

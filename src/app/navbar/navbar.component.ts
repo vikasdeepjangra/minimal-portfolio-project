@@ -13,4 +13,9 @@ export class NavbarComponent {
   showContentArea(){
     this.appCompTS.contentArea = true;
   }
+
+  switchTheme(){
+    this.appCompTS.themeToggle();
+  }
+
 }
